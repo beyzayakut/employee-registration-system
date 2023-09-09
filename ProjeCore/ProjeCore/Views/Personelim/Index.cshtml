@@ -1,0 +1,35 @@
+﻿@using ProjeCore.Models
+@model List<Personel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Şehir</th>
+        <th>Birim</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+    <tr>
+        <td>@x.PersonelID</td>
+        <td>@x.Ad</td>
+        <td>@x.Soyad</td>
+        <td>@x.Sehir</td>
+        <td>@x.Birim.BirimAd</td>
+        <td><a href="/depart/DepartmanSil/@x.PersonelID" class="btn btn-danger">Sil</a></td>
+        <td><a href="/depart/DepartmanGetir/@x.PersonelID" class="btn btn-success">Güncelle</a></td>
+    </tr>
+    }
+</table>
+<a href="/Personelim/YeniPersonel/" class="btn btn-primary">Yeni Personel</a>
+
+
+
+
